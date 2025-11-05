@@ -202,3 +202,9 @@ jobs:
             } else {
               core.info(`Failed to determine labels to set. There may not be enough information in the issue or pull request.`)
             }
+
+name: Install Gemini CLI
+run: |
+    npm install -g @google/gemini-cli
+    echo "✅ Gemini CLI installed"
+    gemini --version || echo "⚠️ Gemini CLI installed but version check failed"
