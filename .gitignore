@@ -7,3 +7,6 @@ __pycache__/
 # uv
 uv.lock
 requirements.txt
+
+.gemini/
+gha-creds-*.json

@@ -1,0 +1,14 @@
+name: Gemini PR Assistant
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  gemini_review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Gemini PR Review
+        uses: google-gemini/actions@v1
+        with:
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
