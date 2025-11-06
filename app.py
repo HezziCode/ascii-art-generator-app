@@ -22,7 +22,13 @@ async def read_root(request: Request, ascii_art: str = None):
 
 @app.post("/submit", response_class=HTMLResponse)
 async def submit(request: Request, user_text: str = Form(...), font_select: str = Form(...)):
-    custom_font = pyfiglet.Figlet(font=f"{custom_font_dir}/{font_select}.flf")
-    art = custom_font.renderText(user_text)
-    context = {"request": request, "message": "Generated ASCII Art:", "ascii_art": art, "fonts": custom_fonts}
-    return templates.TemplateResponse("index.html", context)
+    if font_select not in custom_fonts:
+        return templates.TemplateResponse("index.html", {"request": request, "message": "Invalid font selected.", "ascii_art": None, "fonts": custom_fonts})
+
+    try:
+        custom_font = pyfiglet.Figlet(font=f"{custom_font_dir}/{font_select}.flf")
+        art = custom_font.renderText(user_text)
+        context = {"request": request, "message": "Generated ASCII Art:", "ascii_art": art, "fonts": custom_fonts}
+        return templates.TemplateResponse("index.html", context)
+    except Exception as e:
+        return templates.TemplateResponse("index.html", {"request": request, "message": f"Error: {e}", "ascii_art": None, "fonts": custom_fonts})
