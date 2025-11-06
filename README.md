@@ -8,6 +8,10 @@ The project is deployed on Vercel and can be accessed at the following URL:
 
 [https://ascii-art-generator-app.vercel.app/](https://ascii-art-generator-app.vercel.app/)
 
+## New Font: ShadowText
+
+A new font style called "ShadowText" has been added to the ASCII art generator. To use this font, simply select it from the font dropdown menu on the web interface.
+
 ## Gemini CLI
 
 The Gemini CLI is a powerful command-line interface that allows developers to interact with Google's Gemini models. It provides a set of tools for various tasks, including code generation, file manipulation, and project management.

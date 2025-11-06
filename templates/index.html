@@ -13,11 +13,9 @@
             
             <label for="font_select">Choose a Font:</label>
             <select id="font_select" name="font_select">
-                <option value="block">Block</option>
-                <option value="banner">Banner</option>
-                <option value="standard">Standard</option>
-                <option value="doh">Doh</option>
-                <option value="larry3d">Larry 3D</option>
+                {% for font in fonts %}
+                <option value="{{ font }}">{{ font }}</option>
+                {% endfor %}
             </select>
             
             <input type="submit" value="Submit">
